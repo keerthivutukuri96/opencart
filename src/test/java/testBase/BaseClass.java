@@ -18,16 +18,14 @@ public class BaseClass {
 	@BeforeClass
 	public void setup()
 	{	
-		System.out.println("Debug 0");
+	
 		WebDriverManager.chromedriver().setup();
-		System.out.println("Debug 1");
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--remote-allow-origins=*");
 		driver = new ChromeDriver();
-		System.out.println("Debug 2");
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		System.out.println("Debug 3");
+		
 		driver.get("https://demo.opencart.com/");
 		driver.manage().window().maximize();
 	}

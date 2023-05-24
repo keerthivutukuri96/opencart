@@ -9,7 +9,7 @@
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
-    <version>4.6.0</version>
+    <version>4.9.0</version>
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -68,7 +68,7 @@
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>7.6.1</version>
+    <version>7.7.1</version>
     <scope>test</scope>
 </dependency>
 
@@ -79,11 +79,6 @@
     <version>5.0.9</version>
 </dependency>
 
-<dependency>
-  <groupId>org.seleniumhq.selenium</groupId>
-  <artifactId>selenium-http-jdk-client</artifactId>
-  <version>4.8.1</version>
-</dependency>
 
   </dependencies>
   

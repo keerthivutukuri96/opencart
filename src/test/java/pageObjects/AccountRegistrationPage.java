@@ -11,16 +11,16 @@ public class AccountRegistrationPage extends BasePage {
 	}
 	
 	//Elements
-		@FindBy(name = "First Name")
+		@FindBy(css = "#input-firstname")
 		WebElement txtFirstname;
 		
-		@FindBy(name = "Last Name")
+		@FindBy(css = "#input-lastname")
 		WebElement txtLastname;
 		
-		@FindBy(name = "E-Mail")
+		@FindBy(css = "#input-email")
 		WebElement txtEmail;
 		
-		@FindBy(name = "Password")
+		@FindBy(css = "#input-password")
 		WebElement txtPassword;
 		
 		@FindBy(xpath = "//input[@name='agree']")
