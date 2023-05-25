@@ -1,6 +1,7 @@
 package testBase;
 
 import java.time.Duration;
+import java.util.ResourceBundle;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -21,12 +22,12 @@ public class BaseClass {
 	
 	public Logger logger; //for logging
 	
-	
+	public ResourceBundle rb;
 	@BeforeClass
 	@Parameters("browser")
 	public void setup(String br)
 	{	
-		
+		rb= ResourceBundle.getBundle("config");
 		logger=LogManager.getLogger(this.getClass()); //logging
 	//	WebDriverManager.chromedriver().setup();
 	//	ChromeOptions options = new ChromeOptions();
@@ -52,7 +53,7 @@ public class BaseClass {
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-		driver.get("https://demo.opencart.com/");
+		driver.get(rb.getString("appURL"));
 		driver.manage().window().maximize();
 	}
 	
