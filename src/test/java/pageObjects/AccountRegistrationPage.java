@@ -48,8 +48,10 @@ public class AccountRegistrationPage extends BasePage {
 			txtPassword.sendKeys(pwd);
 		}
 		
-		public void setPrivacyPolicy() {
+		public void setPrivacyPolicy() throws InterruptedException {
+			
 			chkdPolicy.click();
+			
 		}
 		
 		public void clickContinue() {

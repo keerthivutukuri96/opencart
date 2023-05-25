@@ -3,26 +3,52 @@ package testBase;
 import java.time.Duration;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+//import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 //Base class contains reusable components
 public class BaseClass {
 
 	public  static WebDriver driver; 
 	
-	@BeforeClass
-	public void setup()
-	{	
+	public Logger logger; //for logging
 	
-		WebDriverManager.chromedriver().setup();
-//		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--remote-allow-origins=*");
-		driver = new ChromeDriver();
+	
+	@BeforeClass
+	@Parameters("browser")
+	public void setup(String br)
+	{	
+		
+		logger=LogManager.getLogger(this.getClass()); //logging
+	//	WebDriverManager.chromedriver().setup();
+	//	ChromeOptions options = new ChromeOptions();
+	//	options.setExperimentalOption("excludeSwitches", new String[] {"enable-automation"});
+	//	options.addArguments("--remote-allow-origins=*");
+		
+		if(br.equals("chrome"))
+		{
+			driver = new ChromeDriver();
+		}
+		else if(br.equals("edge"))
+		{	
+			driver = new EdgeDriver();
+			
+		}
+		else
+		{	
+			driver = new FirefoxDriver();
+			//driver = new EdgeDriver();
+		}
+			
+		driver.manage().deleteAllCookies();
 		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		

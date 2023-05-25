@@ -13,14 +13,20 @@ public class AccountRegistrationTest extends BaseClass {
 	
 	
 	@Test
-	public void test_account_Registration()
+	public void test_account_Registration() throws InterruptedException
 	{	
-		
+		logger.debug("application logs.....");
+		logger.info("Starting AccountRegistrationTest");
+		try
+		{
 		HomePage hp = new HomePage(driver);
 		hp.clickMyAccount();
+		logger.info("Clicked on my account link");
 		hp.clickRegister();
+		logger.info("Clicked on register link");
 		
 		AccountRegistrationPage regpage = new AccountRegistrationPage(driver);
+		logger.info("Providing customer data");
 		
 		regpage.setFirstName(randomString().toUpperCase());
 		regpage.setLastName(randomString().toUpperCase());
@@ -28,10 +34,18 @@ public class AccountRegistrationTest extends BaseClass {
 		regpage.setPassword(randomAlphaNumeric());
 		regpage.setPrivacyPolicy();
 		regpage.clickContinue();
+		logger.info("Clicked on continue");
 		
 		String confmsg = regpage.getConfirmationMsg();
-		Assert.assertEquals(confmsg, "Your Account Has Been Created! ");
+		logger.info("Validating expected message");
+		
+		Assert.assertEquals(confmsg, "Your Account Has Been Created! ","Test failed");
 	
+		}
+		catch(Exception e) {
+			logger.error("test failed");
+			Assert.fail();
+		}
 		
 	}
 	
