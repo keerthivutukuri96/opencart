@@ -25,7 +25,7 @@ public class LoginTest extends BaseClass {
 		
 		hp.clickLogin();
 		logger.info("Clicked on Login Link");
-		
+		 
 		LoginPage lp = new LoginPage(driver);
 		logger.info("Providing Login details");
 		

@@ -11,7 +11,8 @@
     <classes>
       
    <!--    <class name="testCases.AccountRegistrationTest"/> -->
-       <class name="testCases.LoginTest"/>
+       <!-- <class name="testCases.LoginTest"/> -->
+            <class name="testCases.LoginDDT"/> 
     </classes>
   </test> <!-- OpencartTest -->
 </suite> <!-- OpencartSuite -->
